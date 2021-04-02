@@ -1,11 +1,12 @@
 # 10-Weeks-DSA-Challenge
 ### A 10 weeks Data Structures And Algorithms Challenge organized by Devs' Street.
 <br>
-<br>
+
 ## How can I Participate?
 <br><br>
 <img src="dev.png" alt="Challenge Description">
 <br><br><br>
+
 ## Takeaways?
 <ul>
   <li>Tons of Free learning Resources and Schedule designed by professionals.</li>
