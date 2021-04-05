@@ -45,7 +45,8 @@ void delete_arr(struct arr *del,int index)
 	del->count--;
 	}
 }
-
+int main()
+{
 int num;
 	struct arr r;
 	printf("Enter the size\n");
@@ -73,3 +74,4 @@ int num;
 	delete_arr(&r,3);
 	printf("\nElement after deleating one element is \n");
 	display(r);
+}
