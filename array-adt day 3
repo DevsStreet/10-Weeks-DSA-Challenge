@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct arr
+	{
+	int *A;
+	int size;
+	int count;
+	};
+
+void display(struct arr P)
+{
+	for(int i=0;i<P.count;i++)
+	printf("%d\t",P.A[i]);
+}
+
+void append(struct arr *append,int n)
+{
+	if(append->count < append->size)
+	append->A[append->count]=n;
+	append->count = append->count+1;
+
+}
+
+void insert_arr(struct arr *insert,int index,int x)
+{
+	if(index>=0 && index<=insert->count)
+	{
+	for(int i=insert->count;i>index;i--)
+	{
+	insert->A[i]=insert->A[i-1];
+	}
+	insert->A[index]=x;
+	insert->count++;
+	}
+}
+
+void delete_arr(struct arr *del,int index)
+{
+	int x=0;
+	if(index>=0 && index<=del->count)
+	{
+	x = del->A[index];
+	for(int i=index;i< del->count;i++)
+	del->A[i] = del->A[i+1];
+	del->count--;
+	}
+}
+
+int num;
+	struct arr r;
+	printf("Enter the size\n");
+	scanf("%d",&r.size);
+	r.count=0;
+	r.A=(int*)malloc(r.size*sizeof(int));
+	printf("Enter the number of elements\n");
+	scanf("%d",&num);
+	printf("Enter the elements\n");
+	for(int i=0; i<num;i++)
+	{
+		scanf("%d",&r.A[i]);
+	}
+	r.count=num;
+	printf("original array ");
+	display(r);
+	printf("\n");
+  int a=44;
+	append(&r,a);
+	printf("Elements after appending the function\n");
+	display(r);
+	insert_arr(&r,2,31);
+	printf("\nElements after insrting\n");
+	display(r);
+	delete_arr(&r,3);
+	printf("\nElement after deleating one element is \n");
+	display(r);
