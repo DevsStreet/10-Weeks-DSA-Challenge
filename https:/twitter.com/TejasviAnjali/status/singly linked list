@@ -1,0 +1,235 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node *head;
+struct node
+{
+	int data;
+	struct node *link;
+};
+void insertDisplay()
+{
+	//struct node *head;
+	head=0;
+	struct node *newNode,*temp;
+	int choice =1;
+	int count =0;
+	while(choice)
+	{
+	newNode=(struct node*)malloc(sizeof(struct node));
+	printf("Enter the data\n");
+	scanf("%d",&newNode->data);
+	newNode->link=0;
+
+	printf("--------------------------------------------\n");
+	if(head == 0)
+	{
+		head=temp=newNode;
+	//printf("head = %u\n temp= %u\n newNode=%u\n",head,temp,newNode );
+	}
+	else
+	{
+		temp->link=newNode;
+		temp=newNode;
+		//printf("head = %u\n temp= %u\n newNode=%u\n",head,temp,newNode );
+	}
+	printf("Do you want to continue? (0,1)\n");
+	scanf("%d",&choice);
+}
+	temp=head;
+	printf("Status of the linked list\n");
+	while(temp!=0)
+	{
+		printf("%d\n",temp->data);
+		temp=temp->link;
+		count++;
+	}
+	printf("Total Number of nodes inserted = %d\n",count);
+
+}
+
+void insertNodeAtStart()
+{
+    
+    //printf("head : %u",head);
+	struct node *newNode,*temp;
+	newNode=(struct newNode*)malloc(sizeof(struct node));
+	//printf("head = %u\n temp= %u\n newNode=%u\n",head,temp,newNode );
+	printf("Enter the data you want to Insert at the begning: ");
+	scanf("%d",&newNode->data);
+	newNode->link=head;
+	head=newNode;
+
+	temp=head;
+	printf("List after inserting the node at the begning\n");
+	while(temp!=0)
+	{
+	    //printf("head = %u\n temp= %u\n",head,temp);
+		printf("%d\n",temp->data);
+		temp=temp->link;
+	}
+}
+
+void insertNodeAtEnd()
+{
+	struct node *newNode,*temp;
+	newNode=(struct newNode*)malloc(sizeof(struct node));
+	printf("Enter the data you want ot insert at the end\n");
+	scanf("%d",&newNode->data);
+	newNode->link = 0;
+	temp=head;
+	while(temp->link!=0)
+	{
+		temp=temp->link;
+	}
+	temp->link=newNode;
+	temp=head;
+	printf("Status of the linked list\n");
+	while(temp!=0)
+	{
+		printf("%d\n",temp->data);
+		temp=temp->link;
+	}
+
+}
+
+void node_At_Given_Position()
+{
+	struct node *newNode,*temp,*count;
+	int position , i=0;
+	printf("Enter the position:\n");
+	scanf("%d",&position);
+	if(position>count)
+	{
+		printf("Invalid Input\n");
+	}
+	else
+	{
+		temp=head;
+		while(i<position)
+		{
+			temp=temp->link;
+			i++;
+		}
+	newNode=(struct newNode*)malloc(sizeof(struct node));
+		printf("Enter data:\n");
+		scanf("%d",&newNode->data);
+		newNode->link=temp->link;
+		temp->link=newNode;
+	}
+	temp=head;
+	printf("Status of the linked list\n");
+	while(temp->link!=0)
+	{
+		printf("%d\n",temp->data);
+		temp=temp->link;
+	}
+
+}
+void delete_nodeAtBegining()
+{
+	struct node *temp;
+	if(head==0)
+	{
+		printf("List is empty\n");
+	}
+	else
+	{
+	temp=head;
+	head=head->link;
+	free(temp);
+	}
+	temp=head;
+	printf("Status of the linked list\n");
+	while(temp!=0)
+	{
+		printf("%d\n",temp->data);
+		temp=temp->link;
+	}
+
+}
+
+void deleteNodeAtEnd()
+{
+	struct node *temp;
+	temp=head;
+	while(temp->link!=0)
+	{
+		temp=temp->link;
+	}
+	temp->link=0;
+	temp=head;
+	printf("Status of the linked list - D\n");
+	while(temp->link!=0)
+	{
+		printf("%d\n",temp->data);
+		temp=temp->link;
+	}
+
+}
+
+void deleteNodeAtGivenPosition()
+{
+	struct node *temp,*nextNode;
+	int position, i=1;
+	temp=head;
+	printf("Enter the position:\n");
+	scanf("%d",&position);
+	while(i < position-1)
+	{
+		temp=temp->link;
+		i++;
+	}
+	nextNode=temp->link;
+	temp->link=nextNode->link;
+	free(nextNode);
+
+	temp=head;
+	printf("Status of the linked list - D\n");
+	while(temp!=0)
+	{
+		printf("%d\n",temp->data);
+		temp=temp->link;
+	}
+
+	
+}
+
+void update()
+{
+	struct node *temp,*new;
+	int position, i=1;
+	temp=head;
+	printf("Enter the position\n");
+	scanf("%d",&position);
+	printf("Enter the data\n");
+	scanf("%d",&new->data);
+
+	while(i < position-1)
+	{
+		temp=temp->link;
+		i++;
+	}
+	temp->data=new->data;
+
+	temp=head;
+	printf("Status of the linked list*******\n");
+	while(temp!=0)
+	{
+		printf("%d\n",temp->data);
+		temp=temp->link;
+	}
+}
+int main()
+{
+	
+	insertDisplay();
+	// insertNodeAtStart();
+	// insertNodeAtEnd();
+	// node_At_Given_Position();
+	// delete_nodeAtBegining();
+	//deleteNodeAtEnd();
+	//deleteNodeAtGivenPosition();
+	update();
+}
+
